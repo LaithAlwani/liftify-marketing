@@ -34,7 +34,7 @@ export function SiteHeader() {
             Sign in
           </a>
           <ButtonLink href={SIGN_UP_URL} external size="md">
-            Start free
+            Get started
           </ButtonLink>
         </div>
       </div>

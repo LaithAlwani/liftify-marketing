@@ -15,9 +15,11 @@ auth but only scaffolded UI. The decision is to **abandon the mobile app** and s
 
 The product is deliberately tiny: **"Track workouts fast and see progress over time."**
 Bar for shippable = a new user logs their first workout in **under 30 seconds**, zero
-onboarding. Monetization is a **single flat $6.99/mo Stripe subscription** (Free = logging,
-Pro = charts/analytics). UI quality comes from a **shared design system** driven by the
-`taste-skill` agent skill, used identically across both repos.
+onboarding. Monetization is **paid-only**: a **30-day free trial → $7.99/mo** Stripe
+subscription (no free tier; the whole app is gated behind an active/trialing subscription).
+In-app promo offers (e.g. ~$2.99/mo for 6 months) via Stripe coupons. UI quality comes from a
+**shared design system** driven by the `taste-skill` agent skill, used identically across both
+repos.
 
 > ⚠️ Both repos use a **customized Next.js 16** ("NOT the Next.js you know" per `AGENTS.md`).
 > Before writing any Next.js code, read the relevant guide in `node_modules/next/dist/docs/`
@@ -50,24 +52,28 @@ Pro = charts/analytics). UI quality comes from a **shared design system** driven
 - [x] Renamed workspace packages to `@liftify/{web,convex,shared,tsconfig}`.
 
 ### 2b. Backend — fresh 3-table schema
-`users` (+ `plan`, `stripeCustomerId`) · `workouts` (embedded exercises array) ·
-`bodyEntries` (journal). MVP functions: `users.getOrCreateCurrentUser`/`updateUnits`,
-`workouts.create`/`listForUser`/`getLast`, `bodyEntries.create`/`listForUser`,
-`exercises.list`/`seed`. Streak computed client-side. Delete unused functions.
+`users` (+ `subscriptionStatus`, `stripeCustomerId`, `stripeSubscriptionId`,
+`currentPeriodEnd`) · `workouts` (embedded exercises array) · `bodyEntries` (journal). MVP
+functions: `users.getOrCreateCurrentUser`/`updateUnits`, `workouts.create`/`listForUser`/
+`getLast`, `bodyEntries.create`/`listForUser`, `exercises.list`/`seed`. Streak computed
+client-side. Delete unused functions.
 
-### 2c. Auth (Clerk)
+### 2c. Auth (Clerk) + access gate
 `@clerk/nextjs` + `ConvexProviderWithClerk` + `clerkMiddleware` gating `(app)`; configure
-for `app.liftify.com`; first authed load mints the user row.
+for `app.liftify.com`; first authed load mints the user row. **All `(app)` screens require
+`subscriptionStatus` ∈ {trialing, active}** — else redirect to `/subscribe`.
 
-### 2d. Screens — 4 + upgrade
+### 2d. Screens — 4 + paywall
 Home (Start · last workout · streak) · Log Workout (fast entry, 30-sec test) · Progress
-(2 charts, Pro) · Body Progress (weight chart · add modal · measurements). Free = logging;
-Pro = charts (gate on `users.plan`).
+(2 charts) · Body Progress (weight chart · add modal · measurements) · `/subscribe` paywall.
+No per-feature gating — the whole paid app is behind the subscription gate.
 
-### 2e. Stripe billing — flat $6.99/mo (all in Convex)
-`billing.createCheckoutSession` action · `convex/http.ts` webhook (sets `plan`) · Customer
-Portal · Upgrade modal. Convex env: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`,
-`STRIPE_PRICE_ID`.
+### 2e. Stripe billing — $7.99/mo, 30-day trial (all in Convex)
+`billing.createCheckoutSession` action (subscription mode, `trial_period_days: 30`,
+`allow_promotion_codes`) · in-app **offer coupons** (e.g. 6-month repeating discount ≈
+$2.99/mo) · `convex/http.ts` webhook syncs `subscriptionStatus`/`currentPeriodEnd` · Customer
+Portal. Convex env: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID`.
+Open: card-required trial (default) vs no-card trial.
 
 ### 2f. PWA + polish
 `app/manifest.ts` + Serwist service worker; installable; empty/loading states; kg/lb toggle.
@@ -77,7 +83,7 @@ Portal · Upgrade modal. Convex env: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET
 ## 3. Marketing site (`liftify.com`) — THIS repo
 - [ ] Landing page (shared tokens + design-taste-frontend): hero one-promise headline ·
       3 feature blurbs (fast logging · progress charts · body journal) · pricing card
-      ($6.99/mo) · CTAs → `app.liftify.com/sign-up`.
+      ($7.99/mo, 30-day free trial) · CTAs → `app.liftify.com/sign-up`.
 - [ ] Footer + Privacy / Terms stubs (required before taking payments).
 
 ---

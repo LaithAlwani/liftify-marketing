@@ -5,7 +5,7 @@ import {
   ArrowRight,
 } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "@/components/ui/button";
-import { PRICE_MONTHLY, SIGN_UP_URL } from "@/lib/site";
+import { PRICE_MONTHLY, SIGN_UP_URL, TRIAL_DAYS } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -32,7 +32,7 @@ export function Hero() {
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <ButtonLink href={SIGN_UP_URL} external size="lg">
-            Start free
+            Start free trial
             <ArrowRight weight="bold" className="size-4" />
           </ButtonLink>
           <ButtonLink href="#features" variant="secondary" size="lg">
@@ -42,7 +42,7 @@ export function Hero() {
 
         <p className="flex items-center gap-2 text-sm text-muted-foreground">
           <Check weight="bold" className="size-4 text-accent-strong" />
-          Free forever for logging · Pro is {PRICE_MONTHLY}/mo
+          {TRIAL_DAYS}-day free trial · then {PRICE_MONTHLY}/mo · cancel anytime
         </p>
       </div>
 

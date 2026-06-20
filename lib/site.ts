@@ -4,7 +4,11 @@ export const APP_URL = "https://app.liftify.com";
 export const SIGN_UP_URL = `${APP_URL}/sign-up`;
 export const SIGN_IN_URL = `${APP_URL}/sign-in`;
 
-export const PRICE_MONTHLY = "$6.99";
+// Paid-only model: 30-day free trial, then a single flat monthly price.
+// In-app promotional offers (e.g. a discounted 6-month intro) are handled
+// inside the app via Stripe coupons — not advertised as separate tiers here.
+export const PRICE_MONTHLY = "$7.99";
+export const TRIAL_DAYS = 30;
 
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
