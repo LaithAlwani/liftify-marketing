@@ -75,8 +75,14 @@ $2.99/mo) · `convex/http.ts` webhook syncs `subscriptionStatus`/`currentPeriodE
 Portal. Convex env: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID`.
 Open: card-required trial (default) vs no-card trial.
 
-### 2f. PWA + polish
-`app/manifest.ts` + Serwist service worker; installable; empty/loading states; kg/lb toggle.
+### 2f. PWA + polish — DONE (except phone verification)
+manifest + icons + minimal online-first service worker (installable; Serwist deferred).
+kg/lb toggle + account/membership in a **Settings** screen.
+
+### 2g. Extras beyond MVP — DONE
+Per-set logging with "Add set"; +/- vs all-time best (prefill best); draft persistence +
+Finish dialog + edit saved workouts; weekly weigh-in reminder + notification bell;
+editable body-weight history.
 
 ---
 
