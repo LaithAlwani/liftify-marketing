@@ -50,7 +50,7 @@ export function Pricing() {
         className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[130px]"
       />
 
-      <div className="container-page mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-2xl px-5 text-center">
         {founderYearly && (
           <span className="inline-flex items-center gap-2 rounded-full border border-accent-strong/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-strong">
             <Lightning weight="fill" className="size-3.5" />
@@ -69,7 +69,7 @@ export function Pricing() {
         </p>
       </div>
 
-      <div className="container-page mx-auto mt-10 max-w-md px-5 sm:px-0">
+      <div className="mx-auto mt-10 max-w-md px-5">
         {/* Interval toggle */}
         <div className="mb-6 flex justify-center">
           <div className="inline-flex rounded-full border border-border bg-card p-1">
