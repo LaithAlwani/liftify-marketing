@@ -38,7 +38,6 @@ export function Pricing() {
   const price =
     interval === "monthly" ? "$9.99" : founderYearly ? "$29.99" : "$99.99";
   const suffix = interval === "monthly" ? "/mo" : "/yr";
-  const pct = founder ? Math.round((founder.claimed / founder.target) * 100) : 0;
   const spotsLeft = founder ? Math.max(0, founder.target - founder.claimed) : null;
 
   return (
@@ -55,7 +54,7 @@ export function Pricing() {
         {founderYearly && (
           <span className="inline-flex items-center gap-2 rounded-full border border-accent-strong/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-strong">
             <Lightning weight="fill" className="size-3.5" />
-            Limited — founder pricing for the first {founder?.target ?? 100}
+            Limited — founder pricing
           </span>
         )}
         <h2 className="mt-4 text-3xl font-semibold tracking-tighter sm:text-5xl">
@@ -123,30 +122,19 @@ export function Pricing() {
             {TRIAL_DAYS}-day free trial.
           </p>
 
-          {/* Founder counter */}
+          {/* Founder spots — count only, never the total */}
           {founderYearly && founder && (
-            <div className="mt-5 rounded-xl border border-accent-strong/30 bg-accent/5 p-4">
-              <div className="flex items-center justify-between text-sm font-medium">
-                <span>Founder spots claimed</span>
-                <span className="tabular-nums">
-                  {founder.claimed}
-                  <span className="text-muted-foreground">
-                    {" "}
-                    / {founder.target}
-                  </span>
-                </span>
-              </div>
-              <div className="mt-2 h-2 overflow-hidden rounded-full bg-muted">
-                <div
-                  className="h-full rounded-full bg-accent transition-[width] duration-500"
-                  style={{ width: `${Math.max(pct, 3)}%` }}
-                />
-              </div>
-              <p className="mt-2 text-xs text-muted-foreground">
+            <div className="mt-5 rounded-xl border border-accent-strong/30 bg-accent/5 px-4 py-3 text-center">
+              <p className="text-sm font-semibold text-accent-strong">
                 {spotsLeft === 0
                   ? "All founder spots are claimed."
-                  : `Only ${spotsLeft} left — then it's $99.99/yr.`}
+                  : `Only ${spotsLeft} founder ${spotsLeft === 1 ? "spot" : "spots"} left`}
               </p>
+              {spotsLeft !== 0 && (
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  then it&apos;s $99.99/yr
+                </p>
+              )}
             </div>
           )}
 
