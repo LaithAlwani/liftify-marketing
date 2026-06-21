@@ -4,8 +4,15 @@ import { PRICE_MONTHLY, SIGN_UP_URL, TRIAL_DAYS } from "@/lib/site";
 
 export function Pricing() {
   return (
-    <section id="pricing" className="container-page py-20 sm:py-28">
-      <div className="mx-auto max-w-2xl text-center">
+    <section
+      id="pricing"
+      className="relative overflow-hidden py-20 sm:py-28"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[130px]"
+      />
+      <div className="container-page mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-semibold tracking-tighter sm:text-4xl">
           One membership. Everything in.
         </h2>
@@ -15,7 +22,7 @@ export function Pricing() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-md">
+      <div className="mx-auto mt-12 max-w-md px-5 sm:px-0">
         <div className="relative flex flex-col rounded-card border-2 border-accent-strong bg-card p-8 shadow-xl shadow-accent/10">
           <span className="absolute -top-3 left-8 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
             {TRIAL_DAYS}-day free trial
