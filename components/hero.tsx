@@ -60,28 +60,29 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm"
           >
             <Lightning weight="fill" className="size-3.5 text-accent-strong" />
-            No bloat. Just lifts.
+            Built for people who actually lift.
           </motion.span>
 
           <motion.h1
             variants={item}
             className="text-5xl font-semibold leading-[1.1] tracking-tighter sm:text-6xl lg:text-7xl"
           >
-            Track workouts{" "}
+            Lift heavy.{" "}
             <span className="whitespace-nowrap rounded-lg bg-linear-to-r from-violet-500 to-fuchsia-500 px-2 leading-none text-white">
-              fast
+              Log fast
             </span>
             .
-            <br className="hidden sm:block" /> See{" "}
-            <span className="text-gradient">progress</span> over time.
+            <br className="hidden sm:block" /> Watch{" "}
+            <span className="text-gradient">strength</span> climb.
           </motion.h1>
 
           <motion.p
             variants={item}
             className="max-w-[52ch] text-lg leading-relaxed text-muted-foreground"
           >
-            Log a full workout in under 30 seconds. No nutrition spreadsheets,
-            no clutter — just lift, log, and watch the numbers climb.
+            A full session logged in under 30 seconds, then a performance
+            dashboard that turns every rep into a trend. No macros, no clutter —
+            just the numbers that move you forward.
           </motion.p>
 
           <motion.div
