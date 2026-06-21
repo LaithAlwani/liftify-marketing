@@ -36,11 +36,15 @@ export function Hero() {
       {/* Background grid + volt glow */}
       <div
         aria-hidden
-        className="bg-grid mask-fade-b pointer-events-none absolute inset-0 -z-10 opacity-70"
+        className="bg-grid mask-fade-b pointer-events-none absolute inset-0 -z-10 opacity-60"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 -top-24 -z-10 size-[34rem] rounded-full bg-accent/25 blur-[120px]"
+        className="animate-aurora-a pointer-events-none absolute -right-24 -top-28 -z-10 size-[32rem] rounded-full bg-violet-600/30 blur-[120px]"
+      />
+      <div
+        aria-hidden
+        className="animate-aurora-b pointer-events-none absolute -left-32 top-40 -z-10 size-[30rem] rounded-full bg-fuchsia-600/25 blur-[130px]"
       />
 
       <div className="container-page grid items-center gap-14 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr]">
@@ -64,11 +68,12 @@ export function Hero() {
             className="text-5xl font-semibold leading-[1.1] tracking-tighter sm:text-6xl lg:text-7xl"
           >
             Track workouts{" "}
-            <span className="whitespace-nowrap rounded-lg bg-accent px-2 leading-none text-accent-foreground">
+            <span className="whitespace-nowrap rounded-lg bg-linear-to-r from-violet-500 to-fuchsia-500 px-2 leading-none text-white">
               fast
             </span>
             .
-            <br className="hidden sm:block" /> See progress over time.
+            <br className="hidden sm:block" /> See{" "}
+            <span className="text-gradient">progress</span> over time.
           </motion.h1>
 
           <motion.p
@@ -83,10 +88,14 @@ export function Hero() {
             variants={item}
             className="flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <ButtonLink href={SIGN_UP_URL} external size="lg">
+            <a
+              href={SIGN_UP_URL}
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-7 text-base font-medium text-white shadow-lg shadow-fuchsia-500/25 transition-transform hover:scale-[1.03] active:translate-y-px"
+            >
               Start free trial
               <ArrowRight weight="bold" className="size-4" />
-            </ButtonLink>
+            </a>
             <ButtonLink href="#features" variant="secondary" size="lg">
               See how it works
             </ButtonLink>

@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
+import { Marquee } from "@/components/marquee";
 import { Stats } from "@/components/stats";
 import { Features } from "@/components/features";
 import { Pricing } from "@/components/pricing";
@@ -13,12 +14,11 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <Hero />
+        <Marquee />
         <Reveal>
           <Stats />
         </Reveal>
-        <Reveal>
-          <Features />
-        </Reveal>
+        <Features />
         <Reveal>
           <Pricing />
         </Reveal>

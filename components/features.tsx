@@ -1,16 +1,27 @@
+"use client";
+
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import {
   Lightning,
   ChartLineUp,
   Scales,
   TrendUp,
-} from "@phosphor-icons/react/dist/ssr";
+} from "@phosphor-icons/react";
+
+const EASE = [0.21, 0.47, 0.32, 0.98] as const;
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
 
 export function Features() {
+  const reduce = useReducedMotion();
   return (
-    <section
-      id="features"
-      className="container-page scroll-mt-24 py-20 sm:py-28"
-    >
+    <section id="features" className="container-page scroll-mt-24 py-20 sm:py-28">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-widest text-accent-strong">
           The whole product
@@ -26,9 +37,14 @@ export function Features() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {/* Large — fast logging */}
-        <Card className="md:col-span-2">
+      <motion.div
+        variants={container}
+        initial={reduce ? undefined : "hidden"}
+        whileInView={reduce ? undefined : "show"}
+        viewport={{ once: true, margin: "-80px" }}
+        className="mt-12 grid gap-4 md:grid-cols-3"
+      >
+        <Card className="md:col-span-2" reduce={reduce}>
           <Chip>
             <Lightning weight="bold" className="size-6" />
           </Chip>
@@ -55,8 +71,7 @@ export function Features() {
           </div>
         </Card>
 
-        {/* Progress */}
-        <Card>
+        <Card reduce={reduce}>
           <Chip>
             <ChartLineUp weight="bold" className="size-6" />
           </Chip>
@@ -76,8 +91,7 @@ export function Features() {
           </div>
         </Card>
 
-        {/* Body journal */}
-        <Card>
+        <Card reduce={reduce}>
           <Chip>
             <Scales weight="bold" className="size-6" />
           </Chip>
@@ -88,8 +102,7 @@ export function Features() {
           </Body>
         </Card>
 
-        {/* Large — beat your best */}
-        <Card className="md:col-span-2">
+        <Card className="md:col-span-2" reduce={reduce}>
           <Chip>
             <TrendUp weight="bold" className="size-6" />
           </Chip>
@@ -121,7 +134,7 @@ export function Features() {
             ))}
           </div>
         </Card>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -129,16 +142,21 @@ export function Features() {
 function Card({
   children,
   className = "",
+  reduce,
 }: {
   children: React.ReactNode;
   className?: string;
+  reduce: boolean | null;
 }) {
   return (
-    <div
-      className={`flex flex-col rounded-card border border-border bg-card p-6 transition-colors hover:border-accent-strong/40 ${className}`}
+    <motion.div
+      variants={item}
+      whileHover={reduce ? undefined : { y: -5 }}
+      transition={{ duration: 0.2 }}
+      className={`flex flex-col rounded-card border border-border bg-card p-6 transition-colors hover:border-accent-strong/50 hover:shadow-xl hover:shadow-violet-500/10 ${className}`}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 function Chip({ children }: { children: React.ReactNode }) {
