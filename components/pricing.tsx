@@ -6,7 +6,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden py-20 sm:py-28"
+      className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28"
     >
       <div
         aria-hidden

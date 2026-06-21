@@ -97,3 +97,8 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
   mask-image: linear-gradient(to bottom, black 55%, transparent);
 }
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

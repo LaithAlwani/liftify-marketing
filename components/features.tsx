@@ -7,7 +7,10 @@ import {
 
 export function Features() {
   return (
-    <section id="features" className="container-page py-20 sm:py-28">
+    <section
+      id="features"
+      className="container-page scroll-mt-24 py-20 sm:py-28"
+    >
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-widest text-accent-strong">
           The whole product

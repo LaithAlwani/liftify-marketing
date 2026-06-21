@@ -13,7 +13,9 @@ export const SIGN_IN_URL = `${APP_URL}/sign-in`;
 export const PRICE_MONTHLY = "$7.99";
 export const TRIAL_DAYS = 30;
 
+// Root-relative so they work from any page (e.g. /privacy): navigate home, then
+// scroll to the section.
 export const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Features", href: "/#features" },
+  { label: "Pricing", href: "/#pricing" },
 ] as const;
