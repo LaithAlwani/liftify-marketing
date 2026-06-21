@@ -61,13 +61,11 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="text-5xl font-semibold leading-[0.95] tracking-tighter sm:text-6xl lg:text-7xl"
+            className="text-5xl font-semibold leading-[1.1] tracking-tighter sm:text-6xl lg:text-7xl"
           >
             Track workouts{" "}
-            <span className="relative whitespace-nowrap">
-              <span className="relative z-10 rounded-lg bg-accent px-2 text-accent-foreground">
-                fast
-              </span>
+            <span className="whitespace-nowrap rounded-lg bg-accent px-2 leading-none text-accent-foreground">
+              fast
             </span>
             .
             <br className="hidden sm:block" /> See progress over time.
