@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero";
 import { Marquee } from "@/components/marquee";
 import { Stats } from "@/components/stats";
 import { Features } from "@/components/features";
-import { Pricing } from "@/components/pricing";
 import { CTA } from "@/components/cta";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
@@ -19,9 +18,6 @@ export default function Home() {
           <Stats />
         </Reveal>
         <Features />
-        <Reveal>
-          <Pricing />
-        </Reveal>
         <Reveal>
           <CTA />
         </Reveal>

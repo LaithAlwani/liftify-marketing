@@ -9,7 +9,7 @@ import {
   TrendUp,
 } from "@phosphor-icons/react";
 import { ButtonLink } from "@/components/ui/button";
-import { PRICE_MONTHLY, SIGN_UP_URL, TRIAL_DAYS } from "@/lib/site";
+import { SIGN_UP_URL } from "@/lib/site";
 
 const EASE = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -94,7 +94,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-7 text-base font-medium text-white shadow-lg shadow-fuchsia-500/25 transition-transform hover:scale-[1.03] active:translate-y-px"
             >
-              Start free trial
+              Get started free
               <ArrowRight weight="bold" className="size-4" />
             </a>
             <ButtonLink href="#features" variant="secondary" size="lg">
@@ -107,11 +107,11 @@ export function Hero() {
             className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground"
           >
             <Check weight="bold" className="size-4 text-accent-strong" />
-            {TRIAL_DAYS}-day free trial
+            100% free
             <span className="text-border">·</span>
-            then {PRICE_MONTHLY}/mo
+            no card required
             <span className="text-border">·</span>
-            cancel anytime
+            no ads
           </motion.p>
         </motion.div>
 

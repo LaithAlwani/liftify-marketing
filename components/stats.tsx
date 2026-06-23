@@ -1,7 +1,7 @@
 const STATS = [
   { v: "< 30s", l: "to log a workout" },
-  { v: "$7.99", l: "per month" },
-  { v: "30 days", l: "free trial" },
+  { v: "$0", l: "100% free" },
+  { v: "∞", l: "workout history" },
   { v: "0", l: "spreadsheets" },
 ];
 
