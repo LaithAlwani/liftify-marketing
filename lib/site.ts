@@ -8,6 +8,10 @@ export const APP_URL =
 // The marketing site's own canonical origin (used for SEO/sitemap/OG).
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://liftify.com";
+
+// Public contact address shown in the legal pages.
+export const CONTACT_EMAIL =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@liftify.com";
 export const SIGN_UP_URL = `${APP_URL}/sign-up`;
 export const SIGN_IN_URL = `${APP_URL}/sign-in`;
 
