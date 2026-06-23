@@ -4,6 +4,10 @@
 // CTAs at your local app (e.g. http://app.localhost:3001).
 export const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://app.liftify.com";
+
+// The marketing site's own canonical origin (used for SEO/sitemap/OG).
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://liftify.com";
 export const SIGN_UP_URL = `${APP_URL}/sign-up`;
 export const SIGN_IN_URL = `${APP_URL}/sign-in`;
 

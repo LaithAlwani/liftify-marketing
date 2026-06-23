@@ -3,8 +3,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Liftify",
+  title: "Privacy Policy",
   description: "How Liftify handles your data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

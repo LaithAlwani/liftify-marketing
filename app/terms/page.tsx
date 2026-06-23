@@ -3,8 +3,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Liftify",
+  title: "Terms of Service",
   description: "The terms for using Liftify.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

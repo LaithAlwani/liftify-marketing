@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +13,59 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const DESCRIPTION =
+  "Liftify is a free workout tracker — log lifts in seconds, track sets, rest, " +
+  "and body measurements, and watch your strength climb with charts and PRs.";
+
 export const metadata: Metadata = {
-  title: "Liftify — Track workouts fast",
-  description:
-    "Liftify is the fastest way to log workouts and watch your progress over time.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Liftify — Free workout tracker",
+    template: "%s · Liftify",
+  },
+  description: DESCRIPTION,
+  applicationName: "Liftify",
+  keywords: [
+    "workout tracker",
+    "free workout app",
+    "gym log app",
+    "weight lifting tracker",
+    "strength training app",
+    "progressive overload",
+    "exercise log",
+    "rep and set tracker",
+    "body measurement tracker",
+    "PWA fitness app",
+  ],
+  authors: [{ name: "Liftify" }],
+  creator: "Liftify",
+  publisher: "Liftify",
+  category: "fitness",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Liftify",
+    title: "Liftify — Free workout tracker",
+    description: DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Liftify — Free workout tracker",
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
