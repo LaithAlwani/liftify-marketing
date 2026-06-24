@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   creator: "Liftify",
   publisher: "Liftify",
   category: "fitness",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.png",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
