@@ -8,7 +8,6 @@ import {
   ArrowRight,
   TrendUp,
 } from "@phosphor-icons/react";
-import { ButtonLink } from "@/components/ui/button";
 import { SIGN_UP_URL } from "@/lib/site";
 
 const EASE = [0.21, 0.47, 0.32, 0.98] as const;
@@ -33,21 +32,13 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Background grid + volt glow */}
+      {/* Volt glow, top-right */}
       <div
         aria-hidden
-        className="bg-grid mask-fade-b pointer-events-none absolute inset-0 -z-10 opacity-60"
-      />
-      <div
-        aria-hidden
-        className="animate-aurora-a pointer-events-none absolute -right-24 -top-28 -z-10 size-[32rem] rounded-full bg-violet-600/30 blur-[120px]"
-      />
-      <div
-        aria-hidden
-        className="animate-aurora-b pointer-events-none absolute -left-32 top-40 -z-10 size-[30rem] rounded-full bg-fuchsia-600/25 blur-[130px]"
+        className="animate-aurora-a pointer-events-none absolute -right-28 -top-40 -z-10 size-[38rem] rounded-full bg-accent/15 blur-[120px]"
       />
 
-      <div className="container-page grid items-center gap-14 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="container-page grid items-center gap-14 py-20 sm:py-24 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}
         <motion.div
           variants={container}
@@ -57,28 +48,28 @@ export function Hero() {
         >
           <motion.span
             variants={item}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground"
           >
-            <Lightning weight="fill" className="size-3.5 text-accent-strong" />
-            Built for people who actually lift.
+            <Lightning weight="fill" className="size-3.5 text-accent" />
+            Built for people who actually lift
           </motion.span>
 
           <motion.h1
             variants={item}
-            className="text-5xl font-semibold leading-[1.1] tracking-tighter sm:text-6xl lg:text-7xl"
+            className="font-display text-5xl italic leading-[0.94] sm:text-6xl lg:text-[4.4rem]"
           >
-            Lift heavy.{" "}
-            <span className="whitespace-nowrap rounded-lg bg-linear-to-r from-violet-500 to-fuchsia-500 px-2 leading-none text-white">
-              Log fast
-            </span>
-            .
-            <br className="hidden sm:block" /> Watch{" "}
-            <span className="text-gradient">strength</span> climb.
+            LIFT HEAVY.
+            <br />
+            <span className="tag-skew">LOG FAST.</span>
+            <br />
+            WATCH STRENGTH
+            <br />
+            CLIMB.
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="max-w-[52ch] text-lg leading-relaxed text-muted-foreground"
+            className="max-w-[48ch] text-lg leading-relaxed text-muted-foreground"
           >
             A full session logged in under 30 seconds, then a performance
             dashboard that turns every rep into a trend. No macros, no clutter —
@@ -92,21 +83,24 @@ export function Hero() {
             <a
               href={SIGN_UP_URL}
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-7 text-base font-medium text-white shadow-lg shadow-fuchsia-500/25 transition-transform hover:scale-[1.03] active:translate-y-px"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-display text-[17px] italic text-accent-foreground transition-[filter] hover:brightness-105 active:translate-y-px"
             >
               Get started free
               <ArrowRight weight="bold" className="size-4" />
             </a>
-            <ButtonLink href="#features" variant="secondary" size="lg">
+            <a
+              href="#features"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3.5 font-mono text-[13px] uppercase tracking-[0.06em] text-foreground transition-colors hover:border-subtle"
+            >
               See how it works
-            </ButtonLink>
+            </a>
           </motion.div>
 
           <motion.p
             variants={item}
-            className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground"
+            className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-[0.06em] text-subtle"
           >
-            <Check weight="bold" className="size-4 text-accent-strong" />
+            <Check weight="bold" className="size-3.5 text-accent" />
             100% free
             <span className="text-border">·</span>
             no card required
@@ -120,23 +114,25 @@ export function Hero() {
           initial={reduce ? undefined : { opacity: 0, y: 28, scale: 0.98 }}
           animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-          className="relative mx-auto w-full max-w-md"
+          className="relative mx-auto w-full max-w-[20rem]"
         >
           <motion.div
-            animate={reduce ? undefined : { y: [0, -10, 0] }}
+            animate={reduce ? undefined : { y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="rounded-card border border-border bg-card p-5 shadow-2xl shadow-black/10">
+            <div className="rounded-[1.6rem] border border-border bg-card p-5 shadow-2xl shadow-black/60">
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-muted-foreground">Today</p>
-                  <p className="text-lg font-semibold tracking-tight">
-                    Push Day
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-subtle">
+                    Today
                   </p>
+                  <p className="font-display text-2xl not-italic">PUSH DAY</p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-sm font-medium">
-                  <Flame weight="fill" className="size-4 text-accent-strong" />
-                  12 day streak
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-spark/25 bg-spark/10 px-2.5 py-1.5">
+                  <Flame weight="fill" className="size-3.5 text-spark" />
+                  <span className="font-mono text-[10px] text-spark-strong">
+                    12 DAY
+                  </span>
                 </span>
               </div>
 
@@ -144,19 +140,21 @@ export function Hero() {
                 {EXERCISES.map((ex) => (
                   <li
                     key={ex.name}
-                    className="flex items-center justify-between rounded-xl border border-border px-4 py-3"
+                    className="flex items-center justify-between rounded-xl border border-border px-3.5 py-2.5"
                   >
                     <div>
-                      <p className="font-medium">{ex.name}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-display text-sm not-italic">
+                        {ex.name}
+                      </p>
+                      <p className="font-mono text-[10px] text-subtle">
                         {ex.detail}
                       </p>
                     </div>
                     <span
-                      className={`font-mono text-sm tabular-nums ${
+                      className={`font-mono text-[11px] tabular-nums ${
                         ex.top.startsWith("PR")
-                          ? "text-accent-strong"
-                          : "text-muted-foreground"
+                          ? "text-accent"
+                          : "text-subtle"
                       }`}
                     >
                       {ex.top}
@@ -166,11 +164,11 @@ export function Hero() {
               </ul>
 
               <div className="mt-4 flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">
+                <span className="font-mono text-[10px] uppercase tracking-[0.06em] text-subtle">
                   3 exercises · 9 sets
                 </span>
-                <span className="inline-flex h-10 items-center justify-center rounded-full bg-accent px-5 text-sm font-medium text-accent-foreground">
-                  Finish workout
+                <span className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2 font-display text-[13px] italic text-accent-foreground">
+                  FINISH
                 </span>
               </div>
             </div>
@@ -181,24 +179,28 @@ export function Hero() {
             initial={reduce ? undefined : { opacity: 0, scale: 0.8 }}
             animate={reduce ? undefined : { opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: EASE, delay: 0.6 }}
-            className="absolute -left-4 top-16 hidden sm:block"
+            className="absolute -left-2 top-14 hidden sm:block"
           >
             <motion.div
-              animate={reduce ? undefined : { y: [0, 8, 0] }}
+              animate={reduce ? undefined : { y: [0, 9, 0] }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
                 delay: 0.5,
               }}
-              className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 shadow-xl"
+              className="flex items-center gap-2.5 rounded-2xl border border-spark/25 bg-card px-3 py-2.5 shadow-xl shadow-black/50"
             >
-              <span className="flex size-8 items-center justify-center rounded-lg bg-accent/15 text-accent-strong">
-                <TrendUp weight="bold" className="size-4" />
+              <span className="flex size-[34px] items-center justify-center rounded-lg bg-spark/12 text-spark">
+                <TrendUp weight="bold" className="size-[18px]" />
               </span>
               <div className="leading-tight">
-                <p className="text-xs text-muted-foreground">New PR</p>
-                <p className="text-sm font-semibold">+2.5 kg</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-subtle">
+                  New PR
+                </p>
+                <p className="font-display text-[15px] not-italic text-spark">
+                  +2.5 kg
+                </p>
               </div>
             </motion.div>
           </motion.div>

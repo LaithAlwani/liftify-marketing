@@ -21,4 +21,5 @@ export const SIGN_IN_URL = `${APP_URL}/sign-in`;
 // scroll to the section.
 export const NAV_LINKS = [
   { label: "Features", href: "/#features" },
+  { label: "Why Liftify", href: "/#stats" },
 ] as const;

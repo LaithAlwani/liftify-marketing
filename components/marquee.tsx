@@ -16,20 +16,19 @@ const ITEMS = [
 export function Marquee() {
   const items = [...ITEMS, ...ITEMS];
   return (
-    <div className="relative overflow-hidden border-y border-border py-4">
-      <div className="flex w-max animate-marquee gap-10 whitespace-nowrap pr-10">
+    <div className="relative overflow-hidden border-y border-[#1c1c22] bg-[#0c0c0e] py-4">
+      <div className="flex w-max animate-marquee gap-11 whitespace-nowrap pr-11">
         {items.map((t, i) => (
           <span
             key={i}
-            className="flex items-center gap-3 text-lg font-semibold text-muted-foreground"
+            className="flex items-center gap-3 font-display text-lg not-italic text-[#6a6a72]"
+            style={{ fontWeight: 800 }}
           >
-            <Barbell weight="fill" className="size-4 text-accent-strong" />
+            <Barbell weight="fill" className="size-4 text-accent" />
             {t}
           </span>
         ))}
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent" />
     </div>
   );
 }

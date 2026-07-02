@@ -17,7 +17,7 @@ export default function OpengraphImage() {
           justifyContent: "center",
           padding: "80px",
           background:
-            "linear-gradient(135deg, #0a0a0f 0%, #1a1030 55%, #2a1245 100%)",
+            "linear-gradient(135deg, #0a0a0b 0%, #101208 60%, #171b06 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             alignItems: "center",
             gap: 24,
             fontSize: 84,
-            fontWeight: 700,
+            fontWeight: 800,
             letterSpacing: "-0.04em",
           }}
         >
@@ -40,9 +40,10 @@ export default function OpengraphImage() {
               width: 96,
               height: 96,
               borderRadius: 24,
-              background: "linear-gradient(135deg, #8b5cf6, #d946ef)",
+              background: "#d7f24a",
+              color: "#0a0a0b",
               fontSize: 64,
-              fontWeight: 800,
+              fontWeight: 900,
             }}
           >
             L
@@ -53,12 +54,10 @@ export default function OpengraphImage() {
           style={{
             marginTop: 36,
             fontSize: 48,
-            fontWeight: 600,
+            fontWeight: 700,
             lineHeight: 1.15,
             maxWidth: 900,
-            background: "linear-gradient(90deg, #a78bfa, #f0abfc)",
-            backgroundClip: "text",
-            color: "transparent",
+            color: "#d7f24a",
           }}
         >
           Lift heavy. Log fast. Watch strength climb.

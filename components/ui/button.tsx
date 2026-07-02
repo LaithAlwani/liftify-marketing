@@ -15,7 +15,7 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary: "bg-accent text-accent-foreground hover:bg-accent-strong",
-  secondary: "border border-border bg-card text-foreground hover:bg-muted",
+  secondary: "border border-border text-foreground hover:border-subtle",
   ghost: "text-foreground hover:bg-muted",
 };
 
